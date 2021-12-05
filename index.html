@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tip Calculator</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="calculator">
+<h3>TIP CALCULATOR</h3>
+<p>How much was your bill?</p>
+$<input id="amount" type="text" placeholder="Bill Amount">
+<p>How was your service?</p>
+<select id="service">
+	<option value="0">-- Choose an Option --</option>
+	<option value="5">5% - Terrible</option>
+	<option value="10">10% - Bad</option>
+	<option value="15">15% - It was OK</option>
+	<option value="20">20% - Good</option>
+	<option value="30">30% - Outstanding</option>
+</select>
+<p> How many people are sharing the bill</p>
+<input id="people" type="text" placeholder="Number of People">people
+<br>
+<br>
+<button onclick="getInput()">CALCULATE!</button>
+<h3 id="notice"></h3>
+<h2 id="number"></h2>
+<h4 id="between"><h4>
+</div>
+
+</body>
+<script>
+
+var cost = 0;
+var covers = 0;
+var tip = 0;
+var total = 0;
+var notice = document.getElementById("notice");
+var number = document.getElementById("number");
+var between = document.getElementById("between");
+
+function getInput() {
+var amount = document.getElementById("amount");
+var people = document.getElementById("people");
+var service = document.getElementById("service");
+var quality = service.options[service.selectedIndex];
+tip = parseInt(quality.value, 10);
+cost = parseFloat(amount.value);
+covers = parseInt(people.value, 10);
+
+calculate();
+}
+
+function calculate() {
+var each = cost / covers;
+var answer = each * tip;
+var int = parseInt(answer);
+var total = int / 100;
+display(total);
+}
+
+function display(total) {
+var calc = document.getElementById("calculator");
+notice.innerHTML = "TIP AMOUNT";
+notice.style.fontWeight = "bold";
+number.innerHTML = "<sup>$</sup>" + total;
+between.innerHTML = "each";
+between.style.fontWeight = "bold";
+}
+</script>
+</body>
+</html>
