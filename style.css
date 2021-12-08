@@ -14,16 +14,21 @@ color: white;
 select {
 font-size: 25px;
 padding: 10px;
+width: 80%;
 }
 
+input {
+    width: 20%;
+}
 button {
 background-color: red;
 color: white;
 font-weight: bold;
-font-size: 20px;
+font-size: 15px;
 padding: 8px 20px 8px 20px;
 margin: 10px;
 border-radius: 5px;
+width: 80%;
 }
 
 body {
